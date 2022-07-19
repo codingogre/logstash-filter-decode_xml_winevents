@@ -1,7 +1,2 @@
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/vcs.xml
-/.idea/workspace.xml
-/.idea/logstash-filter-decode_xml_winevents.iml
 /Gemfile.lock
-/logstash-filter-decode_xml_winevents-0.1.0.gem
+/logstash-filter-decode_xml_winevents-*.gem
