@@ -1,6 +1,6 @@
-# Logstash Plugin
+![Logstash Image](https://www.nicepng.com/png/detail/36-363052_easily-import-logstash-errors-into-airbrake-elastic-logstash.png)
 
-[![Travis Build Status](https://travis-ci.com/logstash-plugins/logstash-filter-example.svg)](https://travis-ci.com/logstash-plugins/logstash-filter-example)
+# Decode XML Windows Events (Logstash Plugin)
 
 This is a plugin for [Logstash](https://github.com/elastic/logstash).
 
@@ -8,91 +8,43 @@ It is fully free and fully open source. The license is Apache 2.0, meaning you a
 
 ## Documentation
 
-Logstash provides infrastructure to automatically build documentation for this plugin. We provide a template file, index.asciidoc, where you can add documentation. The contents of this file will be converted into html and then placed with other plugin documentation in a [central location](http://www.elastic.co/guide/en/logstash/current/).
+This plugin will decode Windows Events that are formatted as XML.  The output of the filter will conform to the [Elastic Common Schema](https://www.elastic.co/guide/en/ecs/current/index.html).
 
-- For formatting config examples, you can use the asciidoc `[source,json]` directive
-- For more asciidoc formatting tips, see the excellent reference here https://github.com/elastic/docs#asciidoc-guide
+The plugin only takes one parameter:  field.  This points to the field in the Logstash event that contains the Windows Event
 
-## Need Help?
-
-Need help? Try #logstash on freenode IRC or the https://discuss.elastic.co/c/logstash discussion forum.
-
-## Developing
-
-### 1. Plugin Developement and Testing
-
-#### Code
-- To get started, you'll need JRuby with the Bundler gem installed.
-
-- Create a new plugin or clone and existing from the GitHub [logstash-plugins](https://github.com/logstash-plugins) organization. We also provide [example plugins](https://github.com/logstash-plugins?query=example).
-
-- Install dependencies
+e.g.
 ```sh
-bundle install
-```
+input {
+###
+}
 
-#### Test
+filter {
+  decode_xml_winevents {
+    field => "xmlstring"
+  }
+}
 
-- Update your dependencies
+output {
+  stdout { }
+}
+````
 
+
+**IMPORTANT**: Since the output will conform to ECS the message field in the Logstash event is copied to event.original and the original Windows Event message is located in winlog.message.
+- Download plugin
 ```sh
-bundle install
-```
-
-- Run tests
-
-```sh
-bundle exec rspec
-```
-
-### 2. Running your unpublished Plugin in Logstash
-
-#### 2.1 Run in a local Logstash clone
-
-- Edit Logstash `Gemfile` and add the local plugin path, for example:
-```ruby
-gem "logstash-filter-awesome", :path => "/your/local/logstash-filter-awesome"
+# Logstash 2.3 and higher
+wget https://github.com/codingogre/logstash-filter-decode_xml_winevents/blob/main/logstash-filter-decode_xml_winevents-1.0.0.gem
 ```
 - Install plugin
 ```sh
 # Logstash 2.3 and higher
-bin/logstash-plugin install --no-verify
-
-# Prior to Logstash 2.3
-bin/plugin install --no-verify
-
+cd to where logstash is installed
+bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_winevents-x.x.x.gem
 ```
-- Run Logstash with your plugin
+- Restart Logstash
 ```sh
-bin/logstash -e 'filter {awesome {}}'
+bin/logstash -e 'filter {decode_xml_winevents {field => "xmlstring"}}'
 ```
-At this point any modifications to the plugin code will be applied to this local Logstash setup. After modifying the plugin, simply rerun Logstash.
 
-#### 2.2 Run in an installed Logstash
-
-You can use the same **2.1** method to run your plugin in an installed Logstash by editing its `Gemfile` and pointing the `:path` to your local plugin development directory or you can build the gem and install it using:
-
-- Build your plugin gem
-```sh
-gem build logstash-filter-awesome.gemspec
-```
-- Install the plugin from the Logstash home
-```sh
-# Logstash 2.3 and higher
-bin/logstash-plugin install --no-verify
-
-# Prior to Logstash 2.3
-bin/plugin install --no-verify
-
-```
 - Start Logstash and proceed to test the plugin
-
-## Contributing
-
-All contributions are welcome: ideas, patches, documentation, bug reports, complaints, and even something you drew up on a napkin.
-
-Programming is not a required skill. Whatever you've seen about open source and maintainers or community members  saying "send patches or die" - you will not see that here.
-
-It is more important to the community that you are able to contribute.
-
-For more information about contributing, see the [CONTRIBUTING](https://github.com/elastic/logstash/blob/master/CONTRIBUTING.md) file.
