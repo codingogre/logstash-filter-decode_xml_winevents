@@ -44,7 +44,9 @@ bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_wine
 ```
 - Restart Logstash
 ```sh
+systemctl restart logstash
+```
+- Use filter in Logstash pipeline
+```sh
 bin/logstash -e 'filter {decode_xml_winevents {field => "xmlstring"}}'
 ```
-
-- Start Logstash and proceed to test the plugin
