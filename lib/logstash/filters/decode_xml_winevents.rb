@@ -51,7 +51,7 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
     # 2.) Move all <winlog><System> Elements under <winlog>
     system_data = doc.xpath('/winlog/System')
     system_data.children.each do |node|
-      if (node.keys.length > 0)
+      if node.keys.length > 0
         node.keys.each do |key|
           root.add_child("<#{node.name}#{key}>#{node.attributes[key]}</#{node.name}#{key}>")
         end
@@ -76,9 +76,9 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
 
     # Generate required fields
     doc_hash[:event] = {:original => xml, :code => doc_hash[:winlog][:event_id], :provider => doc_hash[:winlog][:provider_name], :kind => "event"}
-    if (doc_hash[:winlog][:keywords].hex & AUDITFAILURE > 0)
+    if doc_hash[:winlog][:keywords].hex & AUDITFAILURE > 0
       doc_hash[:event][:outcome] = "failure"
-    elsif (doc_hash[:winlog][:keywords].hex & AUDITSUCCESS > 0)
+    elsif doc_hash[:winlog][:keywords].hex & AUDITSUCCESS > 0
       doc_hash[:event][:outcome] = "success"
     end
     doc_hash[:event][:dataset] = "windows.security"
