@@ -7,14 +7,14 @@ describe LogStash::Filters::DecodeXmlWinEvents do
     let(:config) do <<-CONFIG
       filter {
         decode_xml_winevents {
-          message => "Hello World"
+          field => "message"
         }
       }
     CONFIG
     end
 
     sample("message" => "some text") do
-      expect(subject.get("message")).to eq('Hello World')
+      expect(subject.get("message")).to eq('some text')
     end
   end
 end
