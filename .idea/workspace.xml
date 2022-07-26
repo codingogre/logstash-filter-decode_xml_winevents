@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Added .gem file.  Fully integrated plugin with Logstash">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="README.md cleanup">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658231908632</updated>
-      <workItem from="1658231913452" duration="48524000" />
+      <workItem from="1658231913452" duration="48780000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version">
       <created>1658232292654</created>
@@ -80,7 +79,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658872105259</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="README.md cleanup">
+      <created>1658872280962</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1658872280962</updated>
+    </task>
+    <task id="LOCAL-00007" summary="README.md cleanup">
+      <created>1658872289428</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1658872289428</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +114,7 @@
     <MESSAGE value="Initial version" />
     <MESSAGE value="Added RubyMine project files" />
     <MESSAGE value="Added .gem file.  Fully integrated plugin with Logstash" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .gem file.  Fully integrated plugin with Logstash" />
+    <MESSAGE value="README.md cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md cleanup" />
   </component>
 </project>
