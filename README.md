@@ -1,4 +1,4 @@
-![Logstash Image](https://www.nicepng.com/png/detail/36-363052_easily-import-logstash-errors-into-airbrake-elastic-logstash.png | width=50% | height=50%)
+![Logstash Image](https://www.nicepng.com/png/detail/36-363052_easily-import-logstash-errors-into-airbrake-elastic-logstash.png | width=50%)
 
 # Decode XML Windows Events (Logstash Plugin)
 
