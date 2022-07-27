@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Minor code cleanup">
-      <change afterPath="$PROJECT_DIR$/samples/windows_event.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/samples/windows_event_field.xml" afterDir="false" />
+    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Added sample Windows Events">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/samples/windows_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/samples/windows_event.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/samples/windows_event_field.xml" beforeDir="false" afterPath="$PROJECT_DIR$/samples/windows_event_field.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658231908632</updated>
-      <workItem from="1658231913452" duration="57188000" />
+      <workItem from="1658231913452" duration="59116000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version">
       <created>1658232292654</created>
@@ -149,7 +149,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658881695396</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added sample Windows Events">
+      <created>1658884279471</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1658884279471</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added sample Windows Events">
+      <created>1658884302115</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1658884302115</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +186,7 @@
     <MESSAGE value="Added .gem file.  Fully integrated plugin with Logstash" />
     <MESSAGE value="README.md cleanup" />
     <MESSAGE value="Minor code cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor code cleanup" />
+    <MESSAGE value="Added sample Windows Events" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sample Windows Events" />
   </component>
 </project>
