@@ -43,7 +43,7 @@ bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_wine
 ```
 - Restart Logstash
 ```sh
-systemctl restart logstash
+systemctl restart logstash.service # or whatever system initialization your OS uses
 ```
 - Test filter in Logstash pipeline
 ```sh
