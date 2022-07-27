@@ -39,7 +39,7 @@ wget https://github.com/codingogre/logstash-filter-decode_xml_winevents/blob/mai
 ```sh
 # Logstash 2.3 and higher
 cd to where logstash is installed
-bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_winevents-1.0.0.gem
+./bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_winevents-1.0.0.gem
 ```
 - Restart Logstash
 ```sh
