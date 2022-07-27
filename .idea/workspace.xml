@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Minor code cleanup">
-      <change beforePath="$PROJECT_DIR$/.idea/logstash-filter-decode_xml_winevents.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logstash-filter-decode_xml_winevents.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/samples/windows_event.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/samples/windows_event_field.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.0.gem" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.0.gem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +29,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/shh/Development/logstash-filter-decode_xml_winevents",
+    "last_opened_file_path": "/Users/shh/Development/logstash-filter-decode_xml_winevents/samples",
     "nodejs_package_manager_path": "npm",
     "ruby.rails.projectView.checked": "true",
     "settings.editor.selected.configurable": "terminal"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/samples" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="TaskManager">
@@ -46,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658231908632</updated>
-      <workItem from="1658231913452" duration="55964000" />
+      <workItem from="1658231913452" duration="57188000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version">
       <created>1658232292654</created>
@@ -139,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658873219608</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Minor code cleanup">
+      <created>1658881695395</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658881695396</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
