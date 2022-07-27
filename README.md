@@ -46,7 +46,18 @@ bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_wine
 ```sh
 systemctl restart logstash
 ```
-- Use filter in Logstash pipeline
+- Test filter in Logstash pipeline
 ```sh
-bin/logstash -e 'filter {decode_xml_winevents {field => "xmlstring"}}'
+export LOGSTASH_HOME=#whereever you installed Logstash
+export FILTER_HOME=#whereever the git repo is
+
+cp $FILTER_HOME/samples/windows_event.xml /tmp && $LOGSTASH_HOME/bin/logstash -f $FILTER_HOME/samples/logstash-sample.conf
+```
+
+- Test filter with field configuration in Logstash pipeline
+```sh
+export LOGSTASH_HOME=#whereever you installed Logstash
+export FILTER_HOME=#whereever the git repo is
+
+cp $FILTER_HOME/samples/windows_event_field.xml /tmp && $LOGSTASH_HOME/bin/logstash -f $FILTER_HOME/samples/logstash-sample-field.conf
 ```
