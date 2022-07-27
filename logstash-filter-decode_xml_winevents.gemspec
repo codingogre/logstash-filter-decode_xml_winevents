@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.metadata = { "logstash_plugin" => "true", "logstash_group" => "filter" }
 
   # Gem dependencies
-  s.add_runtime_dependency 'logstash-core-plugin-api', '>= 1.60', '<= 2.99'
-  s.add_development_dependency 'logstash-devutils', '~> 0'
+  s.add_runtime_dependency "logstash-core-plugin-api", ">= 1.60", "<= 2.99"
+  s.add_development_dependency 'logstash-devutils'
   s.add_runtime_dependency 'nokogiri', '~> 1.12', '>= 1.12.5'
   s.add_runtime_dependency 'awrence', '~> 1.2', '>= 1.2.1'
   s.add_runtime_dependency 'nori', '~> 2.6', '>= 2.6.0'

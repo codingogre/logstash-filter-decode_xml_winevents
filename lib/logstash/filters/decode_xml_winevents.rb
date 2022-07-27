@@ -8,16 +8,6 @@ require 'awrence'
 
 
 class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
-
-  # Setting the config_name here is required. This is how you
-  # configure this filter from your Logstash config.
-  #
-  # filter {
-  #   decode_xml_winevents {
-  #     field => "My field..."
-  #   }
-  # }
-  #
   config_name "decode_xml_winevents"
 
   # Set the field to decode
