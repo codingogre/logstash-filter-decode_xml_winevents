@@ -23,23 +23,19 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
   public
   def filter(event)
     # Grab the field from the Logstash event
-    @logger.debug? && @logger.info("field in configuration is defined as: #{@field}")
+    @logger.debug? && @logger.debug("field in configuration is defined as: #{@field}")
     xml = event.get("[#{@field}]")
-    @logger.debug? && @logger.info("value found in field is: #{xml}")
+    @logger.debug? && @logger.debug("value found in field is: #{xml}")
 
     # Parse the Windows Event (removing namespaces)
     doc = Nokogiri::XML(xml).remove_namespaces!
-
-    # Rename the <Event> root tag to winlog
-    root = doc.xpath('/Event').first
-    root.name = 'winlog'
 
     # Process the <Event><System> section.  The following things are done:
     # 1.) Make any XML element with an attribute e.g. <Execution ProcessID="4" ThreadID="6676" />
     # Into multiple XML Elements like <ExecutionProcessID>4</ExecutionProcessID>
     #                                 <ExecutionThreadID>4</ExecutionThreadID>
     # 2.) Move all <winlog><System> Elements under <winlog>
-    system_data = doc.xpath('/winlog/System')
+    system_data = doc.xpath('/Event/System')
     system_data.children.each do |node|
       if node.keys.length > 0
         node.keys.each do |key|
@@ -54,10 +50,14 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
 
     # Process the <Event><EventData> section by taking the elements with attributes and rewriting them as elements
     # e.g. <Data Name="SubjectUserSid">S-1-5-18</Data> to <SubjectUserSid>S-1-5-18</SubjectUserSid>
-    event_data = doc.xpath('/winlog/EventData/Data[@Name]')
+    event_data = doc.xpath('/Event/EventData/*[@Name]')
     event_data.each do |node|
-      node.swap("<#{node.attributes['Name']}>#{node.text}</#{node.attributes['Name']}>")
+      node.swap("<#{node.attributes['Name']}>#{node.content}</#{node.attributes['Name']}>")
     end
+
+    # Rename the <Event> root tag to winlog
+    root = doc.xpath('/Event').first
+    root.name = 'winlog'
 
     # Change all of the Element names to snake_case
     doc_hash = Nori.new(:convert_tags_to => lambda { |tag| tag.snakecase.to_sym }, :advanced_typecasting => false).parse(doc.to_s)
