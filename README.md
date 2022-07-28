@@ -45,7 +45,7 @@ cd to where logstash is installed
 ```sh
 systemctl restart logstash.service # or whatever system initialization your OS uses
 ```
-- Test filter in Logstash pipeline
+- Test filter in Logstash pipeline 
 ```sh
 export LOGSTASH_HOME=#whereever you installed Logstash
 export FILTER_HOME=#whereever the git repo is
