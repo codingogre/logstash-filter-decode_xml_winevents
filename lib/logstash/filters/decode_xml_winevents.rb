@@ -92,7 +92,7 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
 
     # Clean up our own inconsistent field names
     doc_hash[:winlog][:record_id] = doc_hash[:winlog].delete(:event_record_id)
-    doc_hash[:winlog][:computer_name] = doc_hash[:winlog].delete(:computer)
+    doc_hash[:host][:name] = doc_hash[:winlog][:computer_name] = doc_hash[:winlog].delete(:computer)
 
     # Populate event with data from the Ruby hash
     doc_hash.keys.each do |key|

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="CHanged to allow for non-standard Windows EventData tags...">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658231908632</updated>
-      <workItem from="1658231913452" duration="72522000" />
+      <workItem from="1658231913452" duration="77982000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version">
       <created>1658232292654</created>
@@ -200,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658981587162</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="CHanged to allow for non-standard Windows EventData tags...">
+      <created>1658981701151</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1658981701151</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
