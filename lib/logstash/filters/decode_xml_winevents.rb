@@ -30,6 +30,9 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
     # Parse the Windows Event (removing namespaces)
     doc = Nokogiri::XML(xml).remove_namespaces!
 
+    # Grab a reference to the root element
+    root = doc.xpath('/Event').first
+
     # Process the <Event><System> section.  The following things are done:
     # 1.) Make any XML element with an attribute e.g. <Execution ProcessID="4" ThreadID="6676" />
     # Into multiple XML Elements like <ExecutionProcessID>4</ExecutionProcessID>
@@ -56,7 +59,6 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
     end
 
     # Rename the <Event> root tag to winlog
-    root = doc.xpath('/Event').first
     root.name = 'winlog'
 
     # Change all of the Element names to snake_case

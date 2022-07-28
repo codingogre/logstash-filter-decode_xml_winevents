@@ -4,8 +4,6 @@
     <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Added testing instructions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.0.gem" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.0.gem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658231908632</updated>
-      <workItem from="1658231913452" duration="69136000" />
+      <workItem from="1658231913452" duration="71649000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version">
       <created>1658232292654</created>
@@ -178,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658887610909</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added testing instructions.">
+      <created>1658974476865</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658974476865</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
