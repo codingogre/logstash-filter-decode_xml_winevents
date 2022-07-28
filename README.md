@@ -33,18 +33,17 @@ output {
 **IMPORTANT**: Since the output will conform to ECS the message field in the Logstash event is copied to event.original and the original Windows Event message is located in winlog.message.
 - Download plugin
 ```sh
-# Logstash 2.3 and higher
-wget https://github.com/codingogre/logstash-filter-decode_xml_winevents/blob/main/logstash-filter-decode_xml_winevents-1.0.0.gem
+wget https://github.com/codingogre/logstash-filter-decode_xml_winevents/raw/main/logstash-filter-decode_xml_winevents-1.0.0.gem
 ```
 - Install plugin
 ```sh
 # Logstash 2.3 and higher
 cd to where logstash is installed
-bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_winevents-x.x.x.gem
+./bin/logstash-plugin install --no-verify /path/to/logstash-filter-decode_xml_winevents-1.0.0.gem
 ```
 - Restart Logstash
 ```sh
-systemctl restart logstash
+systemctl restart logstash.service # or whatever system initialization your OS uses
 ```
 - Test filter in Logstash pipeline
 ```sh
