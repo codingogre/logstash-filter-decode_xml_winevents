@@ -25,20 +25,21 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
     # Grab the field from the Logstash event
     @logger.debug? && @logger.debug("field in configuration is defined as: #{@field}")
     xml = event.get("[#{@field}]")
-    @logger.debug? && @logger.debug("value found in field is: #{xml}")
+    @logger.debug? && @logger.debug("value found in fielvd is: #{xml}")
 
     # Parse the Windows Event (removing namespaces)
     doc = Nokogiri::XML(xml).remove_namespaces!
 
     # Grab a reference to the root element
     root = doc.xpath('/Event').first
+    root.name = 'winlog'
 
     # Process the <Event><System> section.  The following things are done:
     # 1.) Make any XML element with an attribute e.g. <Execution ProcessID="4" ThreadID="6676" />
     # Into multiple XML Elements like <ExecutionProcessID>4</ExecutionProcessID>
     #                                 <ExecutionThreadID>4</ExecutionThreadID>
     # 2.) Move all <winlog><System> Elements under <winlog>
-    system_data = doc.xpath('/Event/System')
+    system_data = doc.xpath('/winlog/System')
     system_data.children.each do |node|
       if node.keys.length > 0
         node.keys.each do |key|
@@ -53,20 +54,17 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
 
     # Process the <Event><EventData> section by taking the elements with attributes and rewriting them as elements
     # e.g. <Data Name="SubjectUserSid">S-1-5-18</Data> to <SubjectUserSid>S-1-5-18</SubjectUserSid>
-    event_data = doc.xpath('/Event/EventData/*[@Name]')
+    event_data = doc.xpath('/winlog/EventData/*[@Name]')
     event_data.each do |node|
       node.swap("<#{node.attributes['Name']}>#{node.content}</#{node.attributes['Name']}>")
     end
-
-    # Rename the <Event> root tag to winlog
-    root.name = 'winlog'
 
     # Change all of the Element names to snake_case
     doc_hash = Nori.new(:convert_tags_to => lambda { |tag| tag.snakecase.to_sym }, :advanced_typecasting => false).parse(doc.to_s)
     # Make an exception for the EventData by renaming the snake_case to CamelCase
     doc_hash[:winlog][:event_data] = doc_hash[:winlog][:event_data].to_camel_keys
 
-    # Generate required fields
+    # Generate required ECS fields
     doc_hash[:event] = {:original => xml, :code => doc_hash[:winlog][:event_id], :provider => doc_hash[:winlog][:provider_name], :kind => "event"}
     if doc_hash[:winlog][:keywords].hex & AUDITFAILURE > 0
       doc_hash[:event][:outcome] = "failure"
@@ -76,9 +74,11 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
     doc_hash[:event][:dataset] = "windows.security"
     doc_hash[:log] = {:level => doc_hash[:winlog][:rendering_info][:level].downcase}
     doc_hash[:@timestamp] = LogStash::Timestamp.parse_iso8601(doc_hash[:winlog][:time_created_system_time])
+    doc_hash[:host] = { :name => doc_hash[:winlog][:computer]}
+
+    # Generate Winlogbeat fields
     doc_hash[:winlog][:process] = {:pid => doc_hash[:winlog][:execution_process_id], :thread => {:id => doc_hash[:winlog][:execution_thread_id]}}
-    doc_hash[:winlog].merge({:message => doc_hash[:winlog][:rendering_info][:message]})
-    doc_hash[:winlog][:channel] = doc_hash[:winlog][:rendering_info][:channel]
+    doc_hash[:winlog][:message] = doc_hash[:winlog][:rendering_info][:message]
     doc_hash[:agent] = {:type => "winlogbeat"}
 
     # Delete fields that are no longer needed
@@ -88,12 +88,11 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
     doc_hash[:winlog].delete(:time_created_system_time)
     doc_hash[:winlog].delete(:level)
     doc_hash[:winlog].delete(:security)
-    event.remove("message")
+    event.remove("[#{@field}]")
 
-    # Clean up our own inconsistent field names
+    # Clean up our own inconsistent Winlogbeat field names
     doc_hash[:winlog][:record_id] = doc_hash[:winlog].delete(:event_record_id)
     doc_hash[:winlog][:computer_name] = doc_hash[:winlog].delete(:computer)
-    doc_hash[:host] = { :name => doc_hash[:winlog][:computer_name]}
 
       # Populate event with data from the Ruby hash
     doc_hash.keys.each do |key|

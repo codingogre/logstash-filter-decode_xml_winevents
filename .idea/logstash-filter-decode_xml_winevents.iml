@@ -83,7 +83,18 @@
   </component>
   <component name="RakeTasksCache">
     <option name="myRootTask">
-      <RakeTaskImpl id="rake" />
+      <RakeTaskImpl id="rake">
+        <subtasks>
+          <RakeTaskImpl description="Publish gem to RubyGems.org" fullCommand="publish_gem" id="publish_gem" />
+          <RakeTaskImpl description="Process any vendor files required for this plugin" fullCommand="vendor" id="vendor" />
+          <RakeTaskImpl description="" fullCommand="vendor/" id="vendor/" />
+          <RakeTaskImpl id="vendor">
+            <subtasks>
+              <RakeTaskImpl description="" fullCommand="vendor:files" id="files" />
+            </subtasks>
+          </RakeTaskImpl>
+        </subtasks>
+      </RakeTaskImpl>
     </option>
   </component>
 </module>
