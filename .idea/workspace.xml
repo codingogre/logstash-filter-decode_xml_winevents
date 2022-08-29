@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Added host.name for ECS compatibility for Logstash Input Filters that does have ECS compatibility.  Removed ECS settings from sample logstash configurations.">
-      <change beforePath="$PROJECT_DIR$/.idea/logstash-filter-decode_xml_winevents.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/logstash-filter-decode_xml_winevents.iml" afterDir="false" />
+    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Cleaned up a few fields that weren't getting set correctly.  Fix a regression with winlog.message">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.2.gem" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.2.gem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/logstash-sample-field.conf" beforeDir="false" afterPath="$PROJECT_DIR$/samples/logstash-sample-field.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/samples/logstash-sample.conf" beforeDir="false" afterPath="$PROJECT_DIR$/samples/logstash-sample.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,10 @@
       <updated>1658231908632</updated>
       <workItem from="1658231913452" duration="88179000" />
       <workItem from="1659413014052" duration="16129000" />
-      <workItem from="1659537057077" duration="16224000" />
+      <workItem from="1659537057077" duration="19041000" />
+      <workItem from="1660564534947" duration="59000" />
+      <workItem from="1661779447496" duration="461000" />
+      <workItem from="1661779926061" duration="657000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version">
       <created>1658232292654</created>
@@ -242,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659059593272</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Cleaned up a few fields that weren't getting set correctly.  Fix a regression with winlog.message">
+      <created>1659628226739</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1659628226739</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,6 +277,7 @@
     <MESSAGE value="Added ECS host field" />
     <MESSAGE value="Changed version" />
     <MESSAGE value="Added host.name for ECS compatibility for Logstash Input Filters that does have ECS compatibility.  Removed ECS settings from sample logstash configurations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added host.name for ECS compatibility for Logstash Input Filters that does have ECS compatibility.  Removed ECS settings from sample logstash configurations." />
+    <MESSAGE value="Cleaned up a few fields that weren't getting set correctly.  Fix a regression with winlog.message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up a few fields that weren't getting set correctly.  Fix a regression with winlog.message" />
   </component>
 </project>
