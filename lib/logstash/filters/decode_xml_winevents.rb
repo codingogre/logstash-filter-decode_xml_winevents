@@ -59,10 +59,14 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
       node.swap("<#{node.attributes['Name']}>#{node.content}</#{node.attributes['Name']}>")
     end
 
-    # Change all of the Element names to snake_case
+    # Change all of the Element names to snake_case and convert to Ruby hash
     doc_hash = Nori.new(:convert_tags_to => lambda { |tag| tag.snakecase.to_sym }, :advanced_typecasting => false).parse(doc.to_s)
     # Make an exception for the EventData by renaming the snake_case to CamelCase
-    doc_hash[:winlog][:event_data] = doc_hash[:winlog][:event_data].to_camel_keys
+    if doc_hash[:winlog][:event_data]
+      doc_hash[:winlog][:event_data] = doc_hash[:winlog][:event_data].to_camel_keys
+    else
+      @logger.warn? && @logger.warn("\nNo event data found for: #{xml}\n")
+    end
 
     # Generate required ECS fields
     doc_hash[:event] = {:original => xml, :code => doc_hash[:winlog][:event_id], :provider => doc_hash[:winlog][:provider_name], :kind => "event"}
@@ -72,13 +76,20 @@ class LogStash::Filters::DecodeXmlWinEvents < LogStash::Filters::Base
       doc_hash[:event][:outcome] = "success"
     end
     doc_hash[:event][:dataset] = "windows.security"
-    doc_hash[:log] = {:level => doc_hash[:winlog][:rendering_info][:level].downcase}
+
+    if doc_hash[:winlog][:rendering_info]
+      doc_hash[:winlog][:message] = doc_hash[:winlog][:rendering_info][:message]
+      level = doc_hash[:winlog][:rendering_info][:level].downcase
+    else
+      level = 'information'
+    end
+    doc_hash[:log] = {:level => level}
     doc_hash[:@timestamp] = LogStash::Timestamp.parse_iso8601(doc_hash[:winlog][:time_created_system_time])
     doc_hash[:host] = { :name => doc_hash[:winlog][:computer]}
+    doc_hash[:host][:os] = {:family => 'windows', :platform => 'windows', :type => 'windows' }
 
     # Generate Winlogbeat fields
     doc_hash[:winlog][:process] = {:pid => doc_hash[:winlog][:execution_process_id], :thread => {:id => doc_hash[:winlog][:execution_thread_id]}}
-    doc_hash[:winlog][:message] = doc_hash[:winlog][:rendering_info][:message]
     doc_hash[:agent] = {:type => "winlogbeat"}
 
     # Delete fields that are no longer needed
