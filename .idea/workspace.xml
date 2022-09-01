@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Cleaned up a few fields that weren't getting set correctly.  Fix a regression with winlog.message">
+    <list default="true" id="fd645165-d73a-4f0c-b7b5-4957c4508339" name="Changes" comment="Made more robust checks for the existance of RenderInfo and EventData in the windows event">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/logstash/filters/decode_xml_winevents.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.2.gem" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.2.gem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents.gemspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.3.gem" beforeDir="false" afterPath="$PROJECT_DIR$/logstash-filter-decode_xml_winevents-1.0.3.gem" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +58,7 @@
       <workItem from="1659537057077" duration="19041000" />
       <workItem from="1660564534947" duration="59000" />
       <workItem from="1661779447496" duration="461000" />
-      <workItem from="1661779926061" duration="11391000" />
+      <workItem from="1661779926061" duration="17307000" />
     </task>
     <task id="LOCAL-00001" summary="Initial version">
       <created>1658232292654</created>
@@ -264,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661983696049</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Made more robust checks for the existance of RenderInfo and EventData in the windows event">
+      <created>1661992600184</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1661992600184</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +301,7 @@
     <MESSAGE value="Changed version" />
     <MESSAGE value="Added host.name for ECS compatibility for Logstash Input Filters that does have ECS compatibility.  Removed ECS settings from sample logstash configurations." />
     <MESSAGE value="Cleaned up a few fields that weren't getting set correctly.  Fix a regression with winlog.message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up a few fields that weren't getting set correctly.  Fix a regression with winlog.message" />
+    <MESSAGE value="Made more robust checks for the existance of RenderInfo and EventData in the windows event" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made more robust checks for the existance of RenderInfo and EventData in the windows event" />
   </component>
 </project>
